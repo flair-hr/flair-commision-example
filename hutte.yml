@@ -17,4 +17,5 @@ push_script: |
   echo '### Set permission sets'
   sfdx force:user:permset:assign --permsetname Flair_Payroll_Manager 1>/dev/null
   sfdx force:user:permset:assign --permsetname Flair_Manager 1>/dev/null
+  sfdx force:user:permset:assign --permsetname Bonus 1>/dev/null
 pull_script: sfdx force:source:pull -f --loglevel fatal --json | hutte_track_changes
