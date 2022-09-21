@@ -10,3 +10,23 @@ package.xml
 
 # LWC Jest
 **/__tests__/**
+
+**/*SessionSetting*
+**/*PasswordPolicy*
+*SessionSetting*
+*PasswordPolicy*
+
+**/profiles
+**/settings
+
+**/*emailservices*
+*emailservices*
+
+*authprovider*
+**appMenus
+
+**/__tests__/**
+**/__test__/**
+**/__mockData__/**
+
+**/README*
