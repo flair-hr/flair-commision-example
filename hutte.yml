@@ -1,0 +1,20 @@
+---
+version: 1.0
+
+push_script: |
+  npm install texei-sfdx-plugin
+  sfdx plugins:link node_modules/texei-sfdx-plugin
+
+  echo '### Install flair package'
+  sfdx force:package:install --wait 15 --publishwait 15 --package $PACKAGE_ID -r
+  sleep 60
+
+  echo '### Push code'
+  sfdx force:source:push --loglevel fatal 1>/dev/null
+
+  sleep 60
+
+  echo '### Set permission sets'
+  sfdx force:user:permset:assign --permsetname Flair_Payroll_Manager 1>/dev/null
+  sfdx force:user:permset:assign --permsetname Flair_Manager 1>/dev/null
+pull_script: sfdx force:source:pull -f --loglevel fatal --json | hutte_track_changes
